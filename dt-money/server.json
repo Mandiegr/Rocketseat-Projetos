@@ -1,35 +1,34 @@
 {
-    "transactions": [
+  "transactions": [
 
-        {
-          "id": 1,
-          "description": "Desenvolvimento de site",
-          "type": "income",
-          "category": "Venda",
-          "price": 14000,
-          "createAt": "2023-10-13-29T19:36:44.505Z"
-
-        },
-
-        {
-            "id": 2,
-            "description": "hunbuguer",
-            "type": "outcome",
-            "category": "Alimantação",
-            "price": 14000,
-            "createAt": "2023-10-13-29T19:20:44.505Z"
-  
-          },
-          {
-            "id": 3,
-            "description": "hunbuguer",
-            "type": "outcome",
-            "category": "Alimantação",
-            "price": 14000,
-            "createAt": "2023-10-13-29T19:20:44.505Z"
-  
-          }
-    ]
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "Venda",
+      "price": 14000,
+      "createdAt": "2022-07-29T19:36:44.505Z"
+    },
+    {
+      "id": 2,
+      "description": "Hambúrguer",
+      "type": "outcome",
+      "category": "Alimentação",
+      "price": 60,
+      "createdAt": "2022-07-29T19:30:44.505Z"
+    },
+    {
+      "id": 3,
+      "description": "Ignite Rocketseat",
+      "type": "outcome",
+      "category": "Educação",
+      "price": 1980,
+      "createdAt": "2022-07-29T19:24:44.505Z"
+     }
+  ]
 }
+
+
+
 
 
