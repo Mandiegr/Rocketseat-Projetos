@@ -1,36 +1,45 @@
+import { useContext} from 'react'
 import { Header } from '../../components/Header'
 import { Summary } from '../../components/Summary'
 import { SearchForm } from './Components/SearchForm'
-import { TransactionsContainer, TransactionsTable } from './styles'
-
+import { TransactionsContainer, TransactionsTable, PriceHighlight } from './styles'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
+import { priceFormatter , dateFormatter} from '../../utils/formatter'
 
 export function Transactions() {
+  const { transactions } = useContext(TransactionsContext);
+  console.log(transactions)
   return (
     <div>
-     <Header />
-     <Summary />
+      <Header />
+      <Summary />
 
-     <TransactionsContainer>
-       <SearchForm/>
-      <TransactionsTable>
-      <tbody>
-        <tr>
-          <td width="50%">Desenvolvimento de site</td>
-          <td>R$ 12.000,00</td>
-          <td>Venda</td>
-          <td>09/10/2023</td>
-        </tr>
-        <tr>
-          <td width="50%">Hamburger</td>
-          <td> - R$ 59,00</td>
-          <td>Alimentação</td>
-          <td>20/09/2023</td>
-        </tr>
-      </tbody>
-      </TransactionsTable>
-     </TransactionsContainer>
-     
-    </div>
+      <TransactionsContainer>
+        <SearchForm />
+
+        <TransactionsTable>
+          <tbody>
+            {transactions.map((transaction) => {
+              return (
+                <tr key={transaction.id}>
+                  <td width="50%">{transaction.description}</td>
+                  <td>
+                    <PriceHighlight variant={transaction.type}>
+                      {transaction.type === 'outcome' && '- '}
+                      {priceFormatter.format(transaction.price)}
+                    </PriceHighlight>
+                  </td>
+                  <td>{transaction.category}</td>
+                  <td>
+                    {dateFormatter.format(new Date(transaction.createdAt))}
+                  </td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </TransactionsTable>
+      </TransactionsContainer>
+      </div>
  
   )
 }
